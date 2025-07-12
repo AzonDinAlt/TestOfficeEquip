@@ -15,6 +15,9 @@ namespace OfficeEquip.Models
         public EquipmentType? EquipmentType { get; set; } 
 
         public int IdStatus { get; set; }
-        public EquipmentStatus? EquipmentStatus { get; set; } 
+        public EquipmentStatus? EquipmentStatus { get; set; }
+
+        public string TypeName => EquipmentType?.TypeName ?? "";
+        public string StatusName => EquipmentStatus?.StatusName ?? "";
     }
 }

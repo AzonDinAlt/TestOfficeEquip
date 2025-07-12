@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using OfficeEquip.CommandRelay;
+using System.Windows;
 
 namespace OfficeEquip.ViewModels
 {
@@ -56,26 +57,53 @@ namespace OfficeEquip.ViewModels
             if (!_context.EquipmentTypes.Any())
             {
                 _context.EquipmentTypes.AddRange(
-                    new EquipmentType { TypeName = "Printer" },
-                    new EquipmentType { TypeName = "Scanner" },
-                    new EquipmentType { TypeName = "Monitor" }
+                    new EquipmentType { TypeName = "Принтер" },
+                    new EquipmentType { TypeName = "Сканер" },
+                    new EquipmentType { TypeName = "Монитор" }
                 );
+                _context.SaveChanges();
             }
 
             if (!_context.EquipmentStatuses.Any())
             {
                 _context.EquipmentStatuses.AddRange(
-                    new EquipmentStatus { StatusName = "In use" },
-                    new EquipmentStatus { StatusName = "In storage" },
-                    new EquipmentStatus { StatusName = "Under repair" }
+                    new EquipmentStatus { StatusName = "В пользовании" },
+                    new EquipmentStatus { StatusName = "На складе" },
+                    new EquipmentStatus { StatusName = "На ремонте" }
                 );
+                _context.SaveChanges();
             }
 
-            _context.SaveChanges();
+            // Добавим тестовые данные для Equipment
+            if (!_context.Equipments.Any())
+            {
+                var firstType = _context.EquipmentTypes.First();
+                var firstStatus = _context.EquipmentStatuses.First();
+
+                _context.Equipments.AddRange(
+                    new Equipment { Name = "HP LaserJet", IdType = firstType.IdType, IdStatus = firstStatus.IdStatus },
+                    new Equipment { Name = "Samsung Monitor", IdType = firstType.IdType, IdStatus = firstStatus.IdStatus }
+                );
+                _context.SaveChanges();
+            }
 
             EquipmentTypes = new ObservableCollection<EquipmentType>(_context.EquipmentTypes.ToList());
             EquipmentStatuses = new ObservableCollection<EquipmentStatus>(_context.EquipmentStatuses.ToList());
             RefreshEquipments();
+            ResetSelection();
+        }
+
+        private bool EmptyFields()
+        {
+            if (SelectedEquipment == null ||
+                string.IsNullOrWhiteSpace(SelectedEquipment.Name) ||
+                SelectedEquipment.IdType == 0 ||
+                SelectedEquipment.IdStatus == 0)
+            {
+                MessageBox.Show("Пожалуйста, заполните все поля!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return true;
+            }
+            return false;
         }
 
         private void RefreshEquipments()
@@ -88,52 +116,54 @@ namespace OfficeEquip.ViewModels
             Equipments.Clear();
             foreach (var e in list)
                 Equipments.Add(e);
+
         }
 
         private void AddEquipment()
         {
-            if (SelectedEquipment != null)
+            if (EmptyFields()) return;
+
+            var newEquipment = new Equipment
             {
-                _context.Equipments.Add(new Equipment
-                {
-                    Name = SelectedEquipment.Name,
-                    IdType = SelectedEquipment.IdType,
-                    IdStatus = SelectedEquipment.IdStatus
-                });
-                _context.SaveChanges();
-                RefreshEquipments();
-                ResetSelection();
-            }
+                Name = SelectedEquipment!.Name,
+                IdType = SelectedEquipment.IdType,
+                IdStatus = SelectedEquipment.IdStatus
+            };
+            _context.Equipments.Add(newEquipment);
+            _context.SaveChanges();
+
+            RefreshEquipments();
+            SelectedEquipment = Equipments.FirstOrDefault(e => e.IdEquipment == newEquipment.IdEquipment);
         }
 
         private void EditEquipment()
         {
-            if (SelectedEquipment != null)
+            if (SelectedEquipment == null || EmptyFields()) return;
+
+            var eq = _context.Equipments.Find(SelectedEquipment.IdEquipment);
+            if (eq != null)
             {
-                var eq = _context.Equipments.Find(SelectedEquipment.IdEquipment);
-                if (eq != null)
-                {
-                    eq.Name = SelectedEquipment.Name;
-                    eq.IdType = SelectedEquipment.IdType;
-                    eq.IdStatus = SelectedEquipment.IdStatus;
-                    _context.SaveChanges();
-                    RefreshEquipments();
-                }
+                eq.Name = SelectedEquipment.Name;
+                eq.IdType = SelectedEquipment.IdType;
+                eq.IdStatus = SelectedEquipment.IdStatus;
+                _context.SaveChanges();
+
+                RefreshEquipments();
+                SelectedEquipment = Equipments.FirstOrDefault(e => e.IdEquipment == eq.IdEquipment);
             }
         }
 
         private void DeleteEquipment()
         {
-            if (SelectedEquipment != null)
+            if (SelectedEquipment == null) return;
+
+            var eq = _context.Equipments.Find(SelectedEquipment.IdEquipment);
+            if (eq != null)
             {
-                var eq = _context.Equipments.Find(SelectedEquipment.IdEquipment);
-                if (eq != null)
-                {
-                    _context.Equipments.Remove(eq);
-                    _context.SaveChanges();
-                    RefreshEquipments();
-                    ResetSelection();
-                }
+                _context.Equipments.Remove(eq);
+                _context.SaveChanges();
+                RefreshEquipments();
+                ResetSelection();
             }
         }
 

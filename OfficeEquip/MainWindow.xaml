@@ -88,10 +88,10 @@
             <DataGrid x:Name="EquipmentDataGrid" Grid.Row="3" Grid.Column="1" Margin="40" ItemsSource="{Binding Equipments}" SelectedItem="{Binding SelectedEquipment}"
           AutoGenerateColumns="False" MinWidth="300">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="#" Binding="{Binding IdEquipment}" Width="Auto"/>
-                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="*"/>
-                    <DataGridTextColumn Header="Тип" Binding="{Binding EquipmentType.TypeName}" Width="*"/>
-                    <DataGridTextColumn Header="Статус" Binding="{Binding EquipmentStatus.StatusName}" Width="*"/>
+                    <DataGridTextColumn Header="#" Binding="{Binding IdEquipment}" Width="Auto" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Тип" Binding="{Binding TypeName}" Width="*" IsReadOnly="True"/>
+                    <DataGridTextColumn Header="Статус" Binding="{Binding StatusName}" Width="*" IsReadOnly="True"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

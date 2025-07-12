@@ -118,3 +118,4 @@ C:\Users\haerf\OneDrive\Desktop\OfficeEquip\OfficeEquip\obj\Debug\net9.0-windows
 C:\Users\haerf\OneDrive\Desktop\OfficeEquip\OfficeEquip\obj\Debug\net9.0-windows\OfficeEquip.pdb
 C:\Users\haerf\OneDrive\Desktop\OfficeEquip\OfficeEquip\obj\Debug\net9.0-windows\OfficeEquip.genruntimeconfig.cache
 C:\Users\haerf\OneDrive\Desktop\OfficeEquip\OfficeEquip\obj\Debug\net9.0-windows\ref\OfficeEquip.dll
+C:\Users\haerf\OneDrive\Desktop\OfficeEquip\OfficeEquip\obj\Debug\net9.0-windows\OfficeEquip_Content.g.cs

@@ -12,6 +12,17 @@ namespace OfficeEquip.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Equipment>().HasKey(e => e.IdEquipment);
+            modelBuilder.Entity<Equipment>()
+                .HasOne(e => e.EquipmentType)
+                .WithMany(t => t.Equipments)
+                .HasForeignKey(e => e.IdType);
+
+            modelBuilder.Entity<Equipment>()
+                .HasOne(e => e.EquipmentStatus)
+                .WithMany(s => s.Equipments)
+                .HasForeignKey(e => e.IdStatus);
+
+            // ЯВНО указываем ключи для EquipmentType и EquipmentStatus
             modelBuilder.Entity<EquipmentType>().HasKey(t => t.IdType);
             modelBuilder.Entity<EquipmentStatus>().HasKey(s => s.IdStatus);
         }
