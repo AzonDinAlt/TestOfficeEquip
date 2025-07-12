@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\models\\equipmenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:models\\equipmenttype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\models\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:models\\equipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\models\\equipmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:models\\equipmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAAIoAAAAAAAAAAAAUwJUAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T21:53:41.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Equipment.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Models\\Equipment.cs",
+              "RelativeDocumentMoniker": "Models\\Equipment.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Models\\Equipment.cs",
+              "RelativeToolTip": "Models\\Equipment.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T21:46:35.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EquipmentStatus.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Models\\EquipmentStatus.cs",
+              "RelativeDocumentMoniker": "Models\\EquipmentStatus.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Models\\EquipmentStatus.cs",
+              "RelativeToolTip": "Models\\EquipmentStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T21:46:21.24Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "EquipmentType.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Models\\EquipmentType.cs",
+              "RelativeDocumentMoniker": "Models\\EquipmentType.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Models\\EquipmentType.cs",
+              "RelativeToolTip": "Models\\EquipmentType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T21:46:06.051Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "MainWindow.xaml",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\MainWindow.xaml*",
+              "RelativeToolTip": "MainWindow.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-07-12T21:37:39.827Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAYwBEAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-12T21:37:39.084Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
