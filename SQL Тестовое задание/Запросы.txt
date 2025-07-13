@@ -1,0 +1,59 @@
+--1 Вывести менеджеров, у которых имеется номер телефона
+Select FIO, Phone from Managers
+where Phone Is not NULL;
+
+
+--2 Вывести кол-во продаж за 20 июня 2025
+Select count(*) as Количество_продаж
+From Sells
+Where Date = '2025-06-20';
+
+
+--3 Вывести среднюю сумму продажи с товаром 'Фанера'
+Select avg(summ) as Средняя_сумма
+From Sells s
+join Products p on s.IdProducts = p.IdProducts
+Where p.name ilike '%Фанера%';
+
+
+--4 Вывести фамилии менеджеров и общую сумму продаж для каждого с товаром 'ОСБ'
+Select m.FIO, sum(s.summ) as Общая_сумма
+From Sells s
+join Managers m on s.IdManager = m.IdManager
+join Products p on s.IdProducts = p.IdProducts
+Where p.name ilike '%ОСБ%'
+GROUP BY m.FIO;
+
+
+--5 Вывести менеджера и товар, который продали 22 августа 2024
+Select m.FIO, p.name 
+From Sells s
+join Managers m on s.IdManager = m.IdManager
+join Products p on s.IdProducts = p.IdProducts
+Where s.date = '2024.08.22';
+
+
+--6 Вывести все товары, у которых в названии имеется 'Фанера' и цена не ниже 1750
+Select * 
+From products p
+Where p.Name ilike '%Фанера%' and p.Cost >= 1750;
+
+
+--7 Вывести историю продаж товаров, группируя по месяцу продажи и наименованию товара
+Select 
+	To_char (Date, 'YYYY-MM') As Месяц,
+	p.name as Товар,
+	Sum(s.CountSells) AS Количество_продано,
+	Sum(s.Summ) AS Общая_сумма
+From Sells s
+join Products p on s.IdProducts = p.IdProducts
+group by Месяц, p.Name
+order by Месяц, p.Name;
+
+
+--8 Вывести количество повторяющихся значений и сами значения из таблицы 'Товары', где количество повторений больше 1
+Select name, count(*) AS Количество
+From products
+group by name
+having count(*) > 1;
+

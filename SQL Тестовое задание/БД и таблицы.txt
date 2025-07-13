@@ -1,0 +1,62 @@
+-- создание базы данных
+CREATE DATABASE SaleDB;
+
+--создание таблиц
+--Таблица Товары
+CREATE Table Products(
+IdProducts Serial Primary Key,
+Name text NOT NULL,
+Cost integer NOT NULL, 
+Volume double precision NOT NULL
+);
+
+--Таблица Менеджер
+Create Table Managers(
+IdManager Serial Primary Key,
+FIO text NOT NULL,
+Salary money NOT NULL,
+Age integer NOT NULL,
+Phone Text NULL
+);
+
+--Таблица Продажа
+Create Table Sells(
+IdSells Serial Primary Key,
+IdManager integer NOT NULL REFERENCES Managers(IdManager),
+IdProducts integer NOT NULL REFERENCES Products(IdProducts),
+CountSells integer NOT NULL,
+Summ double precision NOT NULL,
+Date date NOT NULL
+);
+
+--Данные
+-- Товары
+INSERT INTO Products (Name, Cost, Volume) VALUES
+('Фанера 10мм', 1800, 2.5),
+('Фанера 12мм', 1900, 3.0),
+('ОСБ 9мм', 2200, 2.2),
+('ОСБ 12мм', 2500, 2.8),
+('ДСП 16мм', 1400, 2.0),
+('Фанера 10мм', 1800, 2.5),
+('Фанера влагостойкая', 2000, 3.2);
+
+-- Менеджеры
+INSERT INTO Managers (FIO, Salary, Age, Phone) VALUES
+('Иванов Иван Иванович', 50000, 30, '89001112233'),
+('Петров Петр Петрович', 52000, 32, NULL),
+('Сидоров Сидор Сидорович', 48000, 28, '89003334455'),
+('Кузнецов Николай Николаевич', 51000, 31, NULL),
+('Васильев Василий Васильевич', 53000, 29, '89006667788');
+
+-- Продажи
+INSERT INTO Sells (IdManager, IdProducts, CountSells, Summ, Date) VALUES
+(1, 1, 5, 9000, '2025-06-20'),
+(2, 2, 3, 5700, '2025-06-20'),
+(1, 3, 4, 8800, '2024-08-22'),
+(3, 4, 2, 5000, '2024-08-22'),
+(3, 1, 1, 1800, '2025-06-21'),
+(4, 5, 2, 2800, '2025-06-22'),
+(5, 3, 3, 6600, '2025-06-23'),
+(1, 4, 2, 5000, '2025-06-23'),
+(2, 3, 1, 2200, '2025-06-23'),
+(5, 2, 2, 3800, '2025-06-23');
