@@ -13,12 +13,14 @@ namespace OfficeEquip.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _context;  // Контекст базы данных
 
+        // Коллекции для таблицы и выпадающих списков
         public ObservableCollection<Equipment> Equipments { get; set; } = new();
         public ObservableCollection<EquipmentType> EquipmentTypes { get; set; } = new();
         public ObservableCollection<EquipmentStatus> EquipmentStatuses { get; set; } = new();
 
+        // Выбранный элемент
         private Equipment? _selectedEquipment;
         public Equipment? SelectedEquipment
         {
@@ -26,6 +28,7 @@ namespace OfficeEquip.ViewModels
             set { _selectedEquipment = value; OnPropertyChanged(); }
         }
 
+        // Текст поиска
         private string _searchText = "";
         public string SearchText
         {
@@ -33,11 +36,36 @@ namespace OfficeEquip.ViewModels
             set { _searchText = value; OnPropertyChanged(); SearchEquipments(); }
         }
 
+        // Фильтры
+        private int? _selectedFilterType;
+        public int? SelectedFilterType
+        {
+            get => _selectedFilterType;
+            set { _selectedFilterType = value; OnPropertyChanged(); ApplyFilter(); }
+        }
+
+        private int? _selectedFilterStatus;
+        public int? SelectedFilterStatus
+        {
+            get => _selectedFilterStatus;
+            set { _selectedFilterStatus = value; OnPropertyChanged(); ApplyFilter(); }
+        }
+
+        // Количество отображаемых элементов
+        private int _quantity;
+        public int Quantity
+        {
+            get => _quantity;
+            set { _quantity = value; OnPropertyChanged(); }
+        }
+
+        // Команды
         public ICommand AddCommand { get; }
         public ICommand EditCommand { get; }
         public ICommand DeleteCommand { get; }
         public ICommand ResetCommand { get; }
 
+        // Конструктор
         public MainViewModel()
         {
             _context = new AppDbContext();
@@ -47,9 +75,10 @@ namespace OfficeEquip.ViewModels
             DeleteCommand = new RelayCommand(DeleteEquipment, () => SelectedEquipment != null);
             ResetCommand = new RelayCommand(ResetSelection);
 
-            LoadData();
+            LoadData(); // Загрузка данных
         }
 
+        // Загрузка начальных данных
         private void LoadData()
         {
             _context.Database.EnsureCreated();
@@ -74,7 +103,6 @@ namespace OfficeEquip.ViewModels
                 _context.SaveChanges();
             }
 
-            // Добавим тестовые данные для Equipment
             if (!_context.Equipments.Any())
             {
                 var firstType = _context.EquipmentTypes.First();
@@ -89,10 +117,38 @@ namespace OfficeEquip.ViewModels
 
             EquipmentTypes = new ObservableCollection<EquipmentType>(_context.EquipmentTypes.ToList());
             EquipmentStatuses = new ObservableCollection<EquipmentStatus>(_context.EquipmentStatuses.ToList());
-            RefreshEquipments();
-            ResetSelection();
+            RefreshEquipments(); // Обновить таблицу
+            ResetSelection();  // Очистить выбор
         }
 
+        // Применение фильтрации
+        private void ApplyFilter()
+        {
+            var list = _context.Equipments
+                .Include(e => e.EquipmentType)
+                .Include(e => e.EquipmentStatus)
+                .AsQueryable();
+
+            if (SelectedFilterType.HasValue && SelectedFilterType.Value != 0)
+                list = list.Where(e => e.IdType == SelectedFilterType.Value);
+
+            if (SelectedFilterStatus.HasValue && SelectedFilterStatus.Value != 0)
+                list = list.Where(e => e.IdStatus == SelectedFilterStatus.Value);
+
+            if (!string.IsNullOrWhiteSpace(SearchText))
+                list = list.Where(e => e.Name.Contains(SearchText));
+
+            var result = list.ToList();
+
+            Equipments.Clear();
+            foreach (var e in result)
+                Equipments.Add(e);
+
+            // обновляем количество
+            Quantity = Equipments.Count;
+        }
+
+        // Проверка на пустые поля
         private bool EmptyFields()
         {
             if (SelectedEquipment == null ||
@@ -106,6 +162,7 @@ namespace OfficeEquip.ViewModels
             return false;
         }
 
+        // Перезагрузка таблицы
         private void RefreshEquipments()
         {
             var list = _context.Equipments
@@ -117,11 +174,25 @@ namespace OfficeEquip.ViewModels
             foreach (var e in list)
                 Equipments.Add(e);
 
+            Quantity = Equipments.Count;
         }
 
+        // Добавление нового оборудования
         private void AddEquipment()
         {
             if (EmptyFields()) return;
+
+            // Проверка на повтор
+            bool exists = _context.Equipments.Any(e =>
+                e.Name == SelectedEquipment!.Name &&
+                e.IdType == SelectedEquipment.IdType &&
+                e.IdStatus == SelectedEquipment.IdStatus);
+
+            if (exists)
+            {
+                MessageBox.Show("Такое оборудование уже существует!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
 
             var newEquipment = new Equipment
             {
@@ -136,6 +207,7 @@ namespace OfficeEquip.ViewModels
             SelectedEquipment = Equipments.FirstOrDefault(e => e.IdEquipment == newEquipment.IdEquipment);
         }
 
+        // Изменение оборудования
         private void EditEquipment()
         {
             if (SelectedEquipment == null || EmptyFields()) return;
@@ -153,6 +225,7 @@ namespace OfficeEquip.ViewModels
             }
         }
 
+        // Удаление
         private void DeleteEquipment()
         {
             if (SelectedEquipment == null) return;
@@ -167,11 +240,19 @@ namespace OfficeEquip.ViewModels
             }
         }
 
+        // Сброс выбора
         private void ResetSelection()
         {
             SelectedEquipment = new Equipment();
+
+            SelectedFilterType = null;
+            SelectedFilterStatus = null;  
+            SearchText = "";
+            
+            RefreshEquipments(); // Обновляем список оборудования без фильтрации
         }
 
+        // Поиск
         private void SearchEquipments()
         {
             var list = _context.Equipments
@@ -183,10 +264,13 @@ namespace OfficeEquip.ViewModels
             Equipments.Clear();
             foreach (var e in list)
                 Equipments.Add(e);
+
+            Quantity = Equipments.Count;
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? name = null)
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+
     }
 }

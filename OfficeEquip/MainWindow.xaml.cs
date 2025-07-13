@@ -22,10 +22,12 @@ namespace OfficeEquip
         public MainWindow()
         {
             InitializeComponent();
-            ViewModel = new MainViewModel();
-            DataContext = ViewModel;
+            ViewModel = new MainViewModel(); // Создаём новый экземпляр нашей ViewModel
+            DataContext = ViewModel;  // Устанавливаем DataContext для связывания данных с UI
         }
 
+        // Обработчик события MouseDown на границе окна (Border)
+        // Позволяет перетаскивать окно за границу (если пользователь зажал левую кнопку мыши)
         private void Border_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

@@ -7,7 +7,7 @@
     xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
     <Application.Resources>
         
-        <!--Стиль для поисковой строки-->
+        <!--SearchText-->
         <Style x:Key="searchTextBox" TargetType="TextBox">
             <Setter Property="Background" Value="#ffffff" />
             <Setter Property="Foreground" Value="Black" />
@@ -39,6 +39,9 @@
             </Setter>
         </Style>
 
+        <!--End SearcText region-->
+         
+        
         <!--TextBox-->
         <Style TargetType="TextBox">
             <Setter Property="Background" Value="#ffffff" />
@@ -71,10 +74,13 @@
             </Setter>
         </Style>
 
+        <!--End TextBox region-->
+
+
         <!--Button-->
         <Style TargetType="Button">
             <Setter Property="Background" Value="#38D19F" />
-            <Setter Property="Foreground" Value="#ffffff" />
+            <Setter Property="Foreground" Value="Black" />
             <Setter Property="FocusVisualStyle" Value="{x:Null}" />
             <Setter Property="Width" Value="160"/>
             <Setter Property="Height" Value="50" />
@@ -100,6 +106,9 @@
             </Style.Triggers>
         </Style>
 
+        <!--End Button region-->
+
+        
         <!--Icon:PackIconMaterial-->
         <Style  TargetType="Icon:PackIconMaterial">
             <Setter Property="Width" Value="15" />
@@ -108,6 +117,7 @@
             <Setter Property="Margin" Value="10 2 10 0" />
         </Style>
 
+        <!--End Icon:PackIconMaterial region-->
 
 
         <!--Datagrid-->
@@ -282,6 +292,7 @@
             </Setter>
         </Style>
 
+        <!--End Datagrid region-->
 
 
         <!--ComboBox-->
@@ -312,10 +323,10 @@
             </Setter>
         </Style>
         <LinearGradientBrush x:Key="ComboBox.Static.Background" EndPoint="0,1" StartPoint="0,0">
-            <GradientStop Color="#FFF0F0F0" Offset="0.0"/>
-            <GradientStop Color="#FFE5E5E5" Offset="1.0"/>
+            <GradientStop Color="#E6F6EF" Offset="0.0"/>
+            <GradientStop Color="#EDF9F4" Offset="1.0"/>
         </LinearGradientBrush>
-        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#FFACACAC"/>
+        <SolidColorBrush x:Key="ComboBox.Static.Border" Color="#e0e6ed"/>
         <SolidColorBrush x:Key="ComboBox.Static.Glyph" Color="#FF606060"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Background" Color="#FFFFFFFF"/>
         <SolidColorBrush x:Key="ComboBox.Static.Editable.Border" Color="#FFABADB3"/>
@@ -566,7 +577,7 @@
             </Style.Triggers>
         </Style>
 
-       
+        <!--End ComboBox region-->
 
     </Application.Resources>
 </Application>

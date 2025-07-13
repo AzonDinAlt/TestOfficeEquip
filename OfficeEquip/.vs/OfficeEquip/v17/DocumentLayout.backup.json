@@ -7,12 +7,20 @@
       "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|c:\\users\\haerf\\onedrive\\desktop\\officeequip\\officeequip\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{33CB0A43-EC6F-4859-BAE5-F4FF8ED22E9A}|OfficeEquip.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +30,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T18:32:20.185Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\MainWindow.xaml.cs",
+              "RelativeToolTip": "MainWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-13T18:27:40.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "App.xaml",
               "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\App.xaml",
               "RelativeDocumentMoniker": "App.xaml",
@@ -50,13 +84,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainViewModel.cs",
               "DocumentMoniker": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\ViewModels\\MainViewModel.cs",
               "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
               "ToolTip": "C:\\Users\\haerf\\OneDrive\\Desktop\\OfficeEquip\\OfficeEquip\\ViewModels\\MainViewModel.cs",
               "RelativeToolTip": "ViewModels\\MainViewModel.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAAwFIAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAwwPwAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-12T21:53:41.993Z",
               "EditorCaption": ""

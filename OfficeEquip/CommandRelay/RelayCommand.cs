@@ -3,6 +3,7 @@ using System.Windows.Input;
 
 namespace OfficeEquip.CommandRelay
 {
+    // Класс для упрощенной реализации команд (ICommand)
     public class RelayCommand : ICommand
     {
         private readonly Action _execute;

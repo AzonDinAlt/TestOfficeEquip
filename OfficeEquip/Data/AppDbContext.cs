@@ -3,6 +3,7 @@ using OfficeEquip.Models;
 
 namespace OfficeEquip.Data
 {
+    // Настройки БД: таблицы, связи и строка подключения
     public class AppDbContext : DbContext
     {
         public DbSet<Equipment> Equipments { get; set; }
@@ -11,6 +12,7 @@ namespace OfficeEquip.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Установка ключей и связей
             modelBuilder.Entity<Equipment>().HasKey(e => e.IdEquipment);
             modelBuilder.Entity<Equipment>()
                 .HasOne(e => e.EquipmentType)
@@ -22,7 +24,6 @@ namespace OfficeEquip.Data
                 .WithMany(s => s.Equipments)
                 .HasForeignKey(e => e.IdStatus);
 
-            // ЯВНО указываем ключи для EquipmentType и EquipmentStatus
             modelBuilder.Entity<EquipmentType>().HasKey(t => t.IdType);
             modelBuilder.Entity<EquipmentStatus>().HasKey(s => s.IdStatus);
         }
